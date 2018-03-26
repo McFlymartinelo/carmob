@@ -2,13 +2,23 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as firebase from 'firebase';
+import {TabsPage} from "../pages/tabs/tabs";
 
-import { HomePage } from '../pages/home/home';
+const config = {
+  apiKey: "AIzaSyABk8YfndddHNDYcxyv62LtMtUxyCS-1Q0",
+  authDomain: "carmob-7e6e4.firebaseapp.com",
+  databaseURL: "https://carmob-7e6e4.firebaseio.com",
+  projectId: "carmob-7e6e4",
+  storageBucket: "carmob-7e6e4.appspot.com",
+  messagingSenderId: "685022909921"
+};
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,6 +27,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    firebase.initializeApp(config);
   }
 }
 

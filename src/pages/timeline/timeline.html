@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>timeline</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+  <ion-content class="card-background-page">
+
+    <ion-card>
+      <img src="assets/imgs/Logo_CarMob.png"/>
+    </ion-card>
+
+  <h1 class="Rasso"> Les Rassemblements auto/moto connectés</h1>
+
+    <h4 class="lieu"> Lieu de Rendez-vous CarMob</h4>
+
+  <agm-map [zoom]="12" [latitude]="lat" [longitude]="lng" [style.height]="'45%'">
+    <agm-marker (markerClick)="true" [latitude]="lat" [longitude]="lng">
+      <agm-info-window>
+        <p>place de l'Europe, La Queue-Lez-Yvelines -> Rassemblement CarMob</p>
+        <button ion-button (click)="openWebpage('https://www.weezevent.com/meeting-mars-2018')">Réserver la place</button> <p> </p> <button >Y aller</button>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+
+   <H2 class="rdv"> VOS RENDEZ-VOUS AVEC CARMOB EN 2018</H2>
+
+    <h1 class="lieu">Dimanche 18 mars 2018 <br/>14h30 à 17h</h1>
+  <h2 class="lieu">Dimanche 20 mai 2018 <br/>14h30 à 17h</h2>
+  <h3 class="lieu">Dimanche 15 juillet 2018 <br/>14h30 à 17h</h3>
+  <h5 class="lieu">Dimanche 16 septembre 2018 <br/>14h30 à 17h</h5>
+  <p class="lieu">Dimanche 18 novembre 2018 <br/>14h30 à 17h</p>
+
+</ion-content>
+
+
