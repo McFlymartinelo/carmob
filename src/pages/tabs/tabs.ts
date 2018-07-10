@@ -6,6 +6,7 @@ import {SettingsPage} from "../settings/settings";
 import {SigninPage} from "../signin/signin";
 import {SocialPage} from "../social/social";
 import {CarsPage} from "../cars/cars";
+import {GalleryPage} from "../gallery/gallery";
 
 @IonicPage()
 @Component({
@@ -21,5 +22,6 @@ export class TabsPage {
   signinPage = SigninPage;
   socialPage = SocialPage;
   carsPage = CarsPage;
+  galleryPage = GalleryPage;
 
 }

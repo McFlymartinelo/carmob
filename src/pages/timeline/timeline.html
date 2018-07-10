@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>timeline</ion-title>
   </ion-navbar>
 
@@ -20,18 +20,17 @@
     <agm-marker (markerClick)="true" [latitude]="lat" [longitude]="lng">
       <agm-info-window>
         <p>place de l'Europe, La Queue-Lez-Yvelines -> Rassemblement CarMob</p>
-        <button ion-button (click)="openWebpage('https://www.weezevent.com/meeting-mars-2018')">Réserver la place</button> <p> </p> <button >Y aller</button>
+        <button ion-button (click)="openWebpage('https://www.weezevent.com/meeting-mars-2018')">Réserver la place</button> <p> </p> <button ion-button (click)="navme('Place de lEurope, 78940 La Queue-lez-Yvelines')">Y aller</button>
       </agm-info-window>
     </agm-marker>
   </agm-map>
 
    <H2 class="rdv"> VOS RENDEZ-VOUS AVEC CARMOB EN 2018</H2>
 
-    <h1 class="lieu">Dimanche 18 mars 2018 <br/>14h30 à 17h</h1>
-  <h2 class="lieu">Dimanche 20 mai 2018 <br/>14h30 à 17h</h2>
-  <h3 class="lieu">Dimanche 15 juillet 2018 <br/>14h30 à 17h</h3>
-  <h5 class="lieu">Dimanche 16 septembre 2018 <br/>14h30 à 17h</h5>
-  <p class="lieu">Dimanche 18 novembre 2018 <br/>14h30 à 17h</p>
+    <ion-list class="lieu" *ngFor="let meeting of meetings | async">
+      {{ meeting.date }}
+      {{ meeting.heure }}
+    </ion-list>
 
 </ion-content>
 

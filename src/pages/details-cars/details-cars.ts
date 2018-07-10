@@ -12,17 +12,22 @@ import {FirebaseListObservable} from "angularfire2/database";
 export class DetailsCarsPage {
 
   details: details;
-  index: number;
+  index: string;
+  nameModel; nameBrand; logo: string;
   carsItems: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
     this.carsItems = this.firebaseProvider.getCarsItems();
-  }
-
-  ngOnInit(){
     this.details = this.navParams.get('details');
     this.index = this.navParams.get('index');
+    this.nameModel = this.navParams.get('nameModel');
+    this.nameBrand = this.navParams.get('nameBrand');
+    this.logo = this.navParams.get('logo');
+    console.log('index details', this.index);
+    console.log('nameBrand details', this.nameBrand);
 
   }
+
+
 
 }

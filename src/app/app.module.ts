@@ -20,6 +20,9 @@ import {CarsPage} from "../pages/cars/cars";
 import {DetailsCarsPage} from "../pages/details-cars/details-cars";
 import {AgmCoreModule} from "@agm/core";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import {GalleryPage} from "../pages/gallery/gallery";
+import {LaunchNavigator} from "@ionic-native/launch-navigator";
+import {NativeGeocoder} from "@ionic-native/native-geocoder";
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     SocialPage,
     TabsPage,
     CarsPage,
-    DetailsCarsPage
+    DetailsCarsPage,
+    GalleryPage
   ],
   imports: [
     BrowserModule,
@@ -54,14 +58,17 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     SocialPage,
     TabsPage,
     CarsPage,
-    DetailsCarsPage
+    DetailsCarsPage,
+    GalleryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    InAppBrowser
+    InAppBrowser,
+    LaunchNavigator,
+    NativeGeocoder
   ]
 })
 export class AppModule {}

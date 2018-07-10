@@ -14,4 +14,8 @@ export class FirebaseProvider{
   addItem(name) {
     this.afd.list('/carsItems/').push(name);
   }
+
+  getMeeting(){
+    return this.afd.list('/Meetings/');
+  }
 }

@@ -1,13 +1,13 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>DetailsCars</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>{{ nameBrand }} {{ nameModel}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  {{item.index}} {{item.nameBrand}} {{item.nameModel}}
-
+  {{index}} {{nameBrand}} {{nameModel}} {{ logo }}
+  <img src="this.logo">
 </ion-content>

@@ -18,8 +18,10 @@ export class CarsPage {
 
   }
 
-  onLoadDetails(index : number){
-    this.navCtrl.push(DetailsCarsPage, {index: index});
+  onLoadDetails(index : string, nameBrand: string, nameModel: string, logo: string){
+    console.log('index', index);
+    console.log('nameBrand', nameBrand);
+    this.navCtrl.push(DetailsCarsPage, {index: index, nameBrand: nameBrand, nameModel: nameModel, logo: logo});
   }
 
 }
