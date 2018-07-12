@@ -4,3 +4,9 @@
   <ion-tab tabIcon="happy" tabTitle="Social" [root]="socialPage"></ion-tab>
   <ion-tab tabIcon="albums" tabTitle="Gallery" [root]="galleryPage"></ion-tab>
 </ion-tabs>
+
+<button
+  ion-item
+  *ngFor="let rasso of rassos | async"
+  (click)="onLoadDetails(rasso.date, rasso.Image)">
+</button>

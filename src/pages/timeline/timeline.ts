@@ -19,9 +19,11 @@ export class TimelinePage {
   lat: number = 48.802590;
   lng: number = 1.781838;
   meetings: FirebaseListObservable<any[]>;
+  rassos: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, private inAppBrowser: InAppBrowser, private firebaseProvider: FirebaseProvider, private launchNavigator: LaunchNavigator, ) {
     this.meetings = this.firebaseProvider.getMeeting();
+    this.rassos = this.firebaseProvider.getRasso();
     console.log('meetings', this.meetings);
   }
 

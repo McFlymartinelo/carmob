@@ -23,6 +23,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import {GalleryPage} from "../pages/gallery/gallery";
 import {LaunchNavigator} from "@ionic-native/launch-navigator";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
+import { Camera} from "@ionic-native/camera";
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+import {GalleryDetailsPage} from "../pages/gallery-details/gallery-details";
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import {NativeGeocoder} from "@ionic-native/native-geocoder";
     TabsPage,
     CarsPage,
     DetailsCarsPage,
-    GalleryPage
+    GalleryPage,
+    GalleryDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,8 @@ import {NativeGeocoder} from "@ionic-native/native-geocoder";
     TabsPage,
     CarsPage,
     DetailsCarsPage,
-    GalleryPage
+    GalleryPage,
+    GalleryDetailsPage
   ],
   providers: [
     StatusBar,
@@ -68,7 +73,8 @@ import {NativeGeocoder} from "@ionic-native/native-geocoder";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
     LaunchNavigator,
-    NativeGeocoder
+    NativeGeocoder,
+    Camera
   ]
 })
 export class AppModule {}

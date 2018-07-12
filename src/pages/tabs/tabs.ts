@@ -7,6 +7,8 @@ import {SigninPage} from "../signin/signin";
 import {SocialPage} from "../social/social";
 import {CarsPage} from "../cars/cars";
 import {GalleryPage} from "../gallery/gallery";
+import {FirebaseProvider} from "../../provider/firebase/firebase";
+import {FirebaseListObservable} from "angularfire2/database";
 
 @IonicPage()
 @Component({
@@ -14,6 +16,11 @@ import {GalleryPage} from "../gallery/gallery";
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
+  rassos: FirebaseListObservable<any[]>;
+
+  constructor(private firebaseProvider: FirebaseProvider){
+    this.rassos = this.firebaseProvider.getRasso();
+  }
 
 
   timelinePage = TimelinePage;

@@ -18,4 +18,8 @@ export class FirebaseProvider{
   getMeeting(){
     return this.afd.list('/Meetings/');
   }
+
+  getRasso(){
+    return this.afd.list('/Rasso/')
+  }
 }
