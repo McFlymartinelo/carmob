@@ -7,17 +7,43 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card style="width: 50%; display: inline-block">
-    <img style="width:50%; display: inline-block;" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg" onclick="window.open('https://www.facebook.com/carmobassociation/?ref=bookmarks')"/>
-  </ion-card>
-  <ion-card style="width: 50%; display: inline-block">
-    <img style="width:50%; display: inline-block;"src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" onclick="window.open('https://www.instagram.com/assocarmob')"/>
-  </ion-card>
-
-  <ion-card style="width: 50%; display: inline-block">
-    <img style="width: 50%; display: inline-block" src="https://www.freeiconspng.com/uploads/142411756098-snapchat-icon-1.png"/>
-  </ion-card>
-  <ion-card style="width: 50%; display: inline-block">
-    <img style="width: 50%; display: inline-block" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg" onclick="window.open('https://carmob.wixsite.com/carmob')"/>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card style="width: 100%">
+          <button (click)="openApp('https://www.facebook.com/carmobassociation/')">
+            <img src="assets/imgs/f-logo.gif"/>
+            <!--<img src="assets/imgs/f-logo.png"/>-->
+          </button>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="width: 100%">
+          <button (click)="openApp('https://www.instagram.com/assocarmob/')">
+            <img src="assets/imgs/i-logo.gif"/>
+            <!--<img src="assets/imgs/i-logo.png"/>-->
+          </button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card style="width: 100%; display: inline-block">
+          <button (click)="openApp('https://www.youtube.com/channel/UCjW9IsQquaDc5bBfm8OBzAg')">
+            <img src="assets/imgs/youtube-logo.gif"/>
+            <!--<img src="assets/imgs/youtube-logo.gif"/>-->
+          </button>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="width: 100%; display: inline-block">
+          <button (click)="openApp('http://www.carmob.wixsite.com/carmob')">
+            <img src="assets/imgs/Logo_CarMob.png"/>
+          </button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

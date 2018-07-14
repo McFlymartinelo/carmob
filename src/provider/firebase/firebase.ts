@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {AngularFireDatabase} from "angularfire2/database";
+import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
 
 
 @Injectable()
@@ -19,7 +19,7 @@ export class FirebaseProvider{
     return this.afd.list('/Meetings/');
   }
 
-  getRasso(){
+  public getRasso(): FirebaseListObservable<any[]>{
     return this.afd.list('/Rasso/')
   }
 }

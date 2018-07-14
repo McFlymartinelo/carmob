@@ -40,7 +40,7 @@ import {GalleryDetailsPage} from "../pages/gallery-details/gallery-details";
     CarsPage,
     DetailsCarsPage,
     GalleryPage,
-    GalleryDetailsPage
+    GalleryDetailsPage,
   ],
   imports: [
     BrowserModule,

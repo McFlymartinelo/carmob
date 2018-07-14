@@ -7,18 +7,11 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
-    <button
-    ion-item
-    *ngFor="let rasso of rassos | async"
-    (click)="onLoadDetails(rasso.date, rasso.Image)">
-      <img src="rasso.Image" />
+<ion-content padding class="card-background-page">
+  <ion-card ion-button *ngFor="let rasso of rassos | async" (click)="onLoadDetails(rasso.date, rasso.Image)">
+      <img src="{{imgsource}}" />
       <div class="card-title">{{rasso.date}}</div>
-    </button>
   </ion-card>
-  <ion-list>
-
-  </ion-list>
+  <button ion-fab (click)="takePhoto()">Take Photo</button>
 
 </ion-content>

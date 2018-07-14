@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, NgZone} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FirebaseProvider} from "../../provider/firebase/firebase";
 import {Camera} from "@ionic-native/camera";
 import { storage } from 'firebase';
-
-/**
- * Generated class for the GalleryDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,9 +15,9 @@ export class GalleryDetailsPage {
   public myPhotoURL: any;
   date; uuid; link: string;
   i: number;
+  imgsource: any;
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private firebaseProvider: FirebaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private firebaseProvider: FirebaseProvider, public zone: NgZone) {
     this.date = this.navParams.get('date');
     this.myPhotosRef = storage().ref('/' + this.date + '/');
     this.i = 1;
@@ -86,7 +79,7 @@ export class GalleryDetailsPage {
   }
 
   public getRassoImage(){
-    let imgUrl: string;
+    /*let imgUrl: string;
     this.link = "https://firebasestorage.googleapis.com/v0/b/carmob-7e6e4.appspot.com/o/Rasso%20Septembre%202018%2F59885949-f8af-4f27-a5762.png?alt=media&token=49977934-9a16-4e15-bf87-5b2a927239c5";
     console.log("link", this.link);
     try{
@@ -98,7 +91,45 @@ export class GalleryDetailsPage {
     catch(e){
 
       console.log(e);
-    }
+    }*/
+    console.log('getRassoImage',);
+    // Create a reference to the file we want to download
+    var starsRef = storage().ref().child('/' + this.date + '/');
+    console.log('starsRef',starsRef);
+// Get the download URL
+    starsRef.getDownloadURL().then(function(url) {
+      // Insert url into an <img> tag to "download"
+    }).catch(function(error) {
+
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.message) {
+        case 'storage/object_not_found':
+          // File doesn't exist
+          break;
+
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+
+        case 'storage/unknown':
+          // Unknown error occurred, inspect the server response
+          break;
+      }
+    });
   }
 
+  display() {
+    console.log('image', storage().ref().child('/'));
+    console.log('daterasso', storage().ref().child('/'+ this.date));
+    storage().ref().child('/Rasso Mai 2018.jpg').getDownloadURL().then((url) => {
+      this.zone.run(() => {
+        this.imgsource = url;
+      })
+    })
+  }
 }
