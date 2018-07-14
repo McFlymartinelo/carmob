@@ -126,7 +126,7 @@ export class GalleryDetailsPage {
   display() {
     console.log('image', storage().ref().child('/'));
     console.log('daterasso', storage().ref().child('/'+ this.date));
-    storage().ref().child('/Rasso Mai 2018.jpg').getDownloadURL().then((url) => {
+    storage().ref().child('/' + this.date + '/' + this.date + '.jpg').getDownloadURL().then((url) => {
       this.zone.run(() => {
         this.imgsource = url;
       })

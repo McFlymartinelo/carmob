@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {TimelinePage} from "../timeline/timeline";
 import {QrcodePage} from "../qrcode/qrcode";
 import {SettingsPage} from "../settings/settings";
@@ -9,6 +9,7 @@ import {CarsPage} from "../cars/cars";
 import {GalleryPage} from "../gallery/gallery";
 import {FirebaseProvider} from "../../provider/firebase/firebase";
 import {FirebaseListObservable} from "angularfire2/database";
+import {GalleryDetailsPage} from "../gallery-details/gallery-details";
 
 @IonicPage()
 @Component({
@@ -17,8 +18,9 @@ import {FirebaseListObservable} from "angularfire2/database";
 })
 export class TabsPage {
   rassos: FirebaseListObservable<any[]>;
+  date: string;
 
-  constructor(private firebaseProvider: FirebaseProvider){
+  constructor(private firebaseProvider: FirebaseProvider, private navCtrl: NavController){
     this.rassos = this.firebaseProvider.getRasso();
   }
 
@@ -29,6 +31,17 @@ export class TabsPage {
   signinPage = SigninPage;
   socialPage = SocialPage;
   carsPage = CarsPage;
-  galleryPage = GalleryPage;
+  //galleryPage = GalleryPage;
+
+  onLoadDetails(date: string, image : string){
+    this.date = date;
+    console.log('Gallery', date);
+    this.navCtrl.push(GalleryPage, {date: date});
+  }
+
+  RassoParams = {
+    date1: '{{rasso.date}}',
+    date2: '{{rasso.date}}'
+  }
 
 }

@@ -12,4 +12,16 @@
   <button ion-fab (click)="takePhoto(i)">Take Photo</button>
   <button ion-button (click)="display()">Display</button>
   <img src="{{imgsource}}">
+
+  <div [ngSwitch]="galleryType">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-md-4 col-xl-3 *ngFor="let image of [1,2,3,4]">
+          <div class="image-container" [style.background-image]="'url(assets/imgs/' + image + '.jpg)'"></div>
+          <!--<div class="image-container" [style.background-image]="'url(https://firebasestorage.googleapis.com/v0/b/carmob-7e6e4.appspot.com/o/Rasso%20Septembre%202018%2F59885949-f8af-4f27-a5762.png?alt=media&token=970c1875-a25f-42d4-8ebd-f3a2fba33603)'"></div>-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>

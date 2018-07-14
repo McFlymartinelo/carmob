@@ -1,6 +1,6 @@
-<ion-tabs *ngFor="let rasso of rassos | async" (ionScroll)="onLoadDetails(rasso.date, rasso.Image)">
+<ion-tabs *ngFor="let rasso of rassos | async" (click)="onLoadDetails(rasso.date, rasso.Image)" >
   <ion-tab tabIcon="home" tabTitle="TimeLine" [root]="timelinePage"></ion-tab>
   <ion-tab tabIcon="car" tabTitle="Cars" [root]="carsPage"></ion-tab>
   <ion-tab tabIcon="happy" tabTitle="Social" [root]="socialPage"></ion-tab>
-  <ion-tab tabIcon="albums" tabTitle="Gallery" [root]="galleryPage"></ion-tab>
+  <ion-tab tabIcon="albums" tabTitle="Gallery" [root]="galleryPage" [rootParams]="RassoParams"></ion-tab>
 </ion-tabs>

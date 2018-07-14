@@ -24,7 +24,9 @@ export class GalleryPage {
     this.rassos = this.firebaseProvider.getRasso();
     this.rasso = Object.assign([], this.rassos);
     this.myPhotosRef = storage().ref('/');
-    this.date = this.navParams.get('date');
+    console.log('Passes params', navParams.data);
+    this.date=navParams.get('date');
+    //this.date = this.navParams.get('date');
     console.log('link', this.rassos);
     console.log('daterasso', this.date);
     this.display();
@@ -67,7 +69,7 @@ export class GalleryPage {
     console.log('image', storage().ref().child('/'));
     console.log('date', this.rasso.date);
 
-    storage().ref().child('/Rasso Mai 2018.jpg').getDownloadURL().then((url) => {
+    storage().ref().child('/' + this.date + '/' + this.date + '.jpg').getDownloadURL().then((url) => {
       this.zone.run(() => {
         this.imgsource = url;
       })
